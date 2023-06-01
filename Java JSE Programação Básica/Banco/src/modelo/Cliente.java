@@ -2,12 +2,12 @@ package modelo;
 
 public class Cliente {
 	
-	public int codigo;
-	public String nome;
-	public String cidade;
-	public String estado;
+	private int codigo;
+	private String nome;
+	private String cidade;
+	private String estado;
 	
-	static int quantidade;
+	private static int quantidade;
 	
 	public Cliente() {
 		quantidade++;
