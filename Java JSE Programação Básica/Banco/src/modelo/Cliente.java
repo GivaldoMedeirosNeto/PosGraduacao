@@ -2,10 +2,10 @@ package modelo;
 
 public class Cliente {
 	
-	private int codigo;
-	private String nome;
-	private String cidade;
-	private String estado;
+	protected int codigo;
+	protected String nome;
+	protected String cidade;
+	protected String estado;
 	
 	private static int quantidade;
 	
