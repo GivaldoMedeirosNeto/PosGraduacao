@@ -18,7 +18,7 @@ public class Temperatura {
 		
 		fahrenheit = ((celsius * 9) / 5) + 32;
 		JOptionPane.showMessageDialog(null,
-			celsius + "º celsius = " + fahrenheit + "º fahrenheit");
+			celsius + "ºC = " + fahrenheit + "ºF");
 
 	}
 
