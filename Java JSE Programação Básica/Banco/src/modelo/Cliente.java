@@ -2,39 +2,38 @@ package modelo;
 
 public class Cliente {
 	
-	private String nome;
-	private String cidade;
-	private String estado;
+	public int codigo;
+	public String nome;
+	public String cidade;
+	public String estado;
 	
-	public String getNome() {
-		return nome;
+	static int quantidade;
+	
+	public Cliente() {
+		quantidade++;
+		codigo = quantidade;
+		nome = "INDEFINIDO";
+		cidade = "São Paulo";
+		estado = "São Paulo";
 	}
 	
-	public void setNome(String nome) {
+	public Cliente(String nome, String cidade, String estado) {
+		quantidade++;
+		codigo = quantidade;
 		this.nome = nome;
-	}
-	
-	public String getCidade() {
-		return cidade;
-	}
-	
-	public void setCidade(String cidade) {
 		this.cidade = cidade;
-	}
-	
-	public String getEstado() {
-		return estado;
-	}
-	
-	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
 
 	public String listarDados() {
-		return "NOME: " + nome + "\n" + "CIDADE: " + cidade + "\n" + "ESTADO: " + estado;
+		return  "CÓDIGO: " + codigo + "\n" +
+				"NOME: " + nome + "\n" +
+				"CIDADE: " + cidade + "\n" +
+				"ESTADO: " + estado;
 	}
 	
-	
+	public static int qtdClientes() {
+		return quantidade;
+	}
 
 }

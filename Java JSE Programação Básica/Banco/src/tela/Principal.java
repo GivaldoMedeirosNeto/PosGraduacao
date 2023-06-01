@@ -9,11 +9,15 @@ public class Principal {
 	public static void main(String[] args) {
 		
 		Cliente cliente = new Cliente();
-		cliente.setNome("Anita");
-		cliente.setCidade("Marília");
-		cliente.setEstado("São Paulo");
+		Cliente cliente1 = new Cliente("Anita", "Marília", "São Paulo");
+		Cliente cliente2 = new Cliente("Marcos", "Garça", "São Paulo");
 		
-		JOptionPane.showMessageDialog(null, cliente.listarDados());
+		
+		JOptionPane.showMessageDialog(null, cliente1.listarDados());
+		JOptionPane.showMessageDialog(null, cliente2.listarDados());
+		
+		JOptionPane.showMessageDialog(null,
+			"Possuimos " + Cliente.qtdClientes() + " cliente(s) cadastrados");
 		
 	}
 
