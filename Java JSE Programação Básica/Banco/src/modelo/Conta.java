@@ -8,8 +8,39 @@ public class Conta {
 	protected Cliente cliente;
 	protected double saldo;
 	
-	private static int contator;
-	
+	private static int contator;	
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public static int getContator() {
+		return contator;
+	}
+
+	public static void setContator(int contator) {
+		Conta.contator = contator;
+	}
 
 	public String getSaldoFormatado() {
 		return DecimalFormat.getCurrencyInstance().format(saldo);
