@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 
 import modelo.Cliente;
 import modelo.Conta;
+import modelo.ContaCorrente;
+import modelo.ContaPoupanca;
 import modelo.PessoaFisica;
 import modelo.PessoaJuridica;
 
@@ -33,7 +35,15 @@ public class Principal {
 		
 		JOptionPane.showInputDialog(null, "DADOS DO CLIENTE\n\n" + cliente.listarDados());
 		
-		Conta conta = new Conta(cliente);
+		Conta conta;
+		String tipoConta = JOptionPane.showInputDialog(null,
+				"Tipo de conta a ser criada:\n" + "CC - Conta Corrente\nCP - Conta Poupança");
+		
+		if (tipoConta.equals("CP")) {
+			conta = new ContaPoupanca(cliente);
+		} else {
+			conta = new ContaCorrente(cliente);
+		}
 		
 		JOptionPane.showInputDialog(null, "DADOS DA CONTA\n\n" + conta.listarDados());
 		
