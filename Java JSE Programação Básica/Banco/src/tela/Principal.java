@@ -48,7 +48,7 @@ public class Principal {
 				cliente.setCidade(JOptionPane.showInputDialog(null, "Informe a Cidade:"));
 				cliente.setEstado(JOptionPane.showInputDialog(null, "Informe o Estado:"));
 				
-				JOptionPane.showInputDialog(null, "DADOS DO CLIENTE\n\n" + cliente.listarDados());
+				JOptionPane.showMessageDialog(null, "DADOS DO CLIENTE\n\n" + cliente.listarDados());
 				
 				Conta conta;
 				String tipoConta = JOptionPane.showInputDialog(null,
@@ -60,7 +60,7 @@ public class Principal {
 					conta = new ContaCorrente(cliente);
 				}
 				
-				JOptionPane.showInputDialog(null, "DADOS DA CONTA\n\n" + conta.listarDados());
+				JOptionPane.showMessageDialog(null, "DADOS DA CONTA\n\n" + conta.listarDados());
 				
 				int opcao= 0;
 				String ret;
