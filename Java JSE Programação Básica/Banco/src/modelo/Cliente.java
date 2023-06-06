@@ -3,7 +3,6 @@ package modelo;
 public class Cliente {
 	
 	protected int codigo;
-	protected String nome;
 	protected String cidade;
 	protected String estado;
 	
@@ -12,15 +11,13 @@ public class Cliente {
 	public Cliente() {
 		quantidade++;
 		codigo = quantidade;
-		nome = "INDEFINIDO";
 		cidade = "São Paulo";
 		estado = "São Paulo";
 	}
 	
-	public Cliente(String nome, String cidade, String estado) {
+	public Cliente(String cidade, String estado) {
 		quantidade++;
 		codigo = quantidade;
-		this.nome = nome;
 		this.cidade = cidade;
 		this.estado = estado;
 	}
@@ -31,18 +28,6 @@ public class Cliente {
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
-	}
-
-	public String getNome() {
-		return nome.contains(" ") ? nome.substring(0, nome.indexOf(' ')) : nome;
-	}
-
-	public void setNome(String nome) {
-		if(nome.isEmpty()) {
-			this.nome = "NÃO INFORMADO";
-		} else {
-			this.nome = nome;
-		}
 	}
 
 	public String getCidade() {
@@ -71,7 +56,6 @@ public class Cliente {
 
 	public String listarDados() {
 		return  "CÓDIGO: " + codigo + "\n" +
-				"NOME: " + nome + "\n" +
 				"CIDADE: " + cidade + "\n" +
 				"ESTADO: " + estado;
 	}
