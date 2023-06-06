@@ -8,7 +8,14 @@ public class Conta {
 	protected Cliente cliente;
 	protected double saldo;
 	
-	private static int contator;	
+	private static int contator;
+	
+	
+
+	public Conta(Cliente cliente) {
+		super();
+		this.cliente = cliente;
+	}
 
 	public int getNumero() {
 		return numero;
@@ -57,6 +64,19 @@ public class Conta {
 		} else {
 			return false;
 		}
+	}
+	
+	public String listarDados() {
+		String nome;
+		if(cliente instanceof PessoaFisica) {
+			nome = ((PessoaFisica)cliente).getNome();
+		} else {
+			nome = ((PessoaJuridica)cliente).getRazaoSocial();
+		}
+		
+		return "NUMERO: " + numero + "\n" + 
+				"CORRENTISTA: " + nome + "\n" + 
+				"SALDO: " + DecimalFormat.getCurrencyInstance().format(saldo);
 	}
 
 }
