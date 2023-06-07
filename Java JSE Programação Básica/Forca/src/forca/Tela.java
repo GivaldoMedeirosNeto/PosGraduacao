@@ -20,7 +20,7 @@ public class Tela {
 			String letra = JOptionPane.showInputDialog(null, textArea);
 			
 			if(letra.equals("")) {
-				letra = "#";
+				letra = "*";
 			}
 			
 			letra = letra.substring(0, 1).toUpperCase();
