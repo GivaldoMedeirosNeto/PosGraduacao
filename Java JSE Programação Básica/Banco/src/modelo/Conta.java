@@ -8,12 +8,10 @@ public class Conta {
 	protected Cliente cliente;
 	protected double saldo;
 	
-	private static int contator;
-	
-	
+	private static int contator = 1;	
 
 	public Conta(Cliente cliente) {
-		super();
+		this.numero = contator++;
 		this.cliente = cliente;
 	}
 
@@ -22,7 +20,7 @@ public class Conta {
 	}
 
 	public void setNumero(int numero) {
-		this.numero = numero;
+		this.numero = contator++;
 	}
 
 	public Cliente getCliente() {
