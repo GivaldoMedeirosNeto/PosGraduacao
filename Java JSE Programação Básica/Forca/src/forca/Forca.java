@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Forca {
 
-	private String[] palavras = new String[]{"PENELOPE", "TWIKKI", "KIKO", "RYNNO"} ;
+	private String[] palavras = new String[]{"PENELOPE", "TWIKKI", "KIKO", "RYNNO", "KIRA"} ;
 	private String[] forca = new String[7];
 	
 	private int erros;
