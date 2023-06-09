@@ -15,7 +15,22 @@ public class TesteLista {
 		nomes.add(6);
 		
 		for(int i = 0; i < nomes.size(); i++) {
-			System.out.println(nomes.get(i));
+			String nome = (String) nomes.get(i);
+			System.out.println(nome);
+		}
+		
+		ArrayList<String> nomes2 = new ArrayList<String>();
+		nomes2.add("Givaldo");
+		nomes2.add("Penelope");
+		nomes2.add("Kira");
+		
+		nomes2.add("37");
+		nomes2.add("3");
+		nomes2.add("6");
+		
+		for(int i = 0; i < nomes2.size(); i++) {
+			String nome = nomes2.get(i);
+			System.out.println(nome);
 		}
 		
 		
