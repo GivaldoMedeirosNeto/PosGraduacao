@@ -9,11 +9,12 @@ public class TesteExcecoes {
 		try {
 			String idade = JOptionPane.showInputDialog(null, "Qual a sua idade");
 			int valorIdade = Integer.parseInt(idade);
-			System.out.println("Sua idade é " + valorIdade);			
+			String resultado = Pessoa.exibirMaiorIdade(valorIdade);
+			System.out.println("Sua idade é " + valorIdade);
+			System.out.println("Você é " + resultado);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
 
 	}
 

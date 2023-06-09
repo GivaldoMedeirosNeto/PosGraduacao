@@ -1,5 +1,7 @@
 package programas;
 
+import javax.swing.JOptionPane;
+
 public class TesteExcecoes02 {
 	
 	public static double calcularArea(double base, double altura) {
@@ -16,7 +18,11 @@ public class TesteExcecoes02 {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Área = " + calcularArea(-10, 5));
+		try {
+			System.out.println("Área = " + calcularArea(-10, 5));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
 	}
 
 }
