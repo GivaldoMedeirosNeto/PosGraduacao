@@ -4,14 +4,14 @@ import javax.swing.JOptionPane;
 
 public class TesteExcecoes02 {
 	
-	public static double calcularArea(double base, double altura) {
+	public static double calcularArea(double base, double altura) throws Exception{
 		/*
 		 * consideramos que não seja possível retangulos
 		 * com lados negativos
 		 */
 		
 		if(base <=0 || altura <=0) {
-			throw new ArithmeticException("Os lados do retângulo devem ser possitivos!");
+			throw new Exception("Os lados do retângulo devem ser possitivos!");
 		}
 		
 		return base * altura;		
