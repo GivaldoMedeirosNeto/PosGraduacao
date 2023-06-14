@@ -75,7 +75,9 @@ public class Cronometro extends JFrame {
 		JButton btnParar = new JButton("Terminar");
 		btnParar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				t.stop();
+				if(t != null) {
+					t.stop();
+				}
 			}
 		});
 		btnParar.setBounds(165, 55, 89, 23);
