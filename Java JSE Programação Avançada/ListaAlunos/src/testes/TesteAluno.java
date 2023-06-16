@@ -2,7 +2,9 @@ package testes;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import aluno.Aluno;
 
@@ -24,6 +26,21 @@ public class TesteAluno {
 			System.out.println(aluno);
 		}
 		
+		System.out.println("* * * * * * * * * * * * * * *");
+		
+		Map<Integer, String> mapAlunos = gerarMap(alunos);
+		for (Map.Entry<Integer, String> aluno : mapAlunos.entrySet()) {
+			System.out.println(aluno.getKey() + " - " + aluno.getValue());			
+		}
+		
+	}
+	
+	private static Map<Integer, String> gerarMap(List<Aluno> alunos){
+		Map<Integer, String> mapa = new HashMap<Integer, String>();
+		for(Aluno aluno : alunos) {
+			mapa.put(aluno.getRm(), aluno.getNome());
+		}
+		return mapa;
 	}
 
 }
