@@ -1,6 +1,6 @@
 package aluno;
 
-public class Aluno {
+public class Aluno implements Comparable<Aluno> {
 	
 	private int rm;
 	private String nome;
@@ -40,6 +40,11 @@ public class Aluno {
 	@Override
 	public String toString() {
 		return "RM: " + rm + "\nNOME: " + nome + "\nCURSO: " + curso + "\n";
+	}
+	
+	@Override
+	public int compareTo(Aluno arg0) {
+		return this.nome.compareTo(arg0.nome);
 	}
 
 }
