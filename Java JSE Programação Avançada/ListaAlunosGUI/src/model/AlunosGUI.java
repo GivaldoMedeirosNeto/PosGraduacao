@@ -29,7 +29,7 @@ public class AlunosGUI extends JFrame {
 	private JLabel lblCurso;
 	private JLabel lblPeriodo;
 	
-	private JList<String> LstAlunos;
+	private JList<String> lstAlunos;
 	private JScrollPane scrool;
 	private JComboBox<String> cmbPeriodo;
 	private String[] periodo = {"MATUTINO", "VESPERTINO", "NOTURNO"};
@@ -44,7 +44,7 @@ public class AlunosGUI extends JFrame {
 		painel = new JPanel();
 		this.setContentPane(painel);
 		painel.setLayout(null);
-		this.setBounds(100, 100, 600, 250);
+		this.setBounds(100, 100, 800, 210);
 		
 		lblRM = new JLabel("RM:");
 		lblRM.setBounds(10, 20, 70, 20);
@@ -79,13 +79,13 @@ public class AlunosGUI extends JFrame {
 		painel.add(cmbPeriodo);
 		
 		scrool = new JScrollPane();
-		scrool.setBounds(350, 10, 200, 150);
-		painel.add(scrool);
+		scrool.setBounds(350, 10, 200, 150);		
 		
-		LstAlunos = new JList<String>();
-		LstAlunos.setBounds(350, 10, 200, 150);
-		scrool.setViewportView(LstAlunos);
-		painel.add(LstAlunos);
+		lstAlunos = new JList<String>();
+		lstAlunos.setBounds(350, 10, 420, 150);
+		scrool.setViewportView(lstAlunos);
+		painel.add(lstAlunos);
+		painel.add(scrool);
 		
 		btnEnviar = new JButton("Enviar");
 		btnEnviar.addActionListener(new ActionListener() {
@@ -93,7 +93,7 @@ public class AlunosGUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Aluno aluno = new Aluno(
-					Integer.parseInt(txtRM.getText()),
+					txtRM.getText(),
 					txtNome.getText(),
 					txtCurso.getText(),
 					(String) cmbPeriodo.getSelectedItem()
@@ -102,6 +102,9 @@ public class AlunosGUI extends JFrame {
 				Aluno.alunos.add(aluno);
 				
 				JOptionPane.showMessageDialog(null, "Aluno incluido na lista");
+				txtRM.setText("");
+				txtNome.setText("");
+				txtCurso.setText("");
 				
 			}
 		});
@@ -114,9 +117,11 @@ public class AlunosGUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DefaultListModel<String> model = new DefaultListModel<String>();
+				model.addElement("RM - NOME - CURSO - PERÍODO");
 				for (Aluno aluno : Aluno.alunos) {
 					model.addElement(aluno.toString());
 				}
+				lstAlunos.setModel(model);
 			}
 		});
 		btnListar.setBounds(130, 112, 90, 25);
