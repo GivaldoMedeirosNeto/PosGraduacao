@@ -1,16 +1,23 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno implements Comparable<Aluno> {
 	
 	private int rm;
 	private String nome;
 	private String curso;
+	private String periodo;
 	
-	public Aluno(int rm, String nome, String curso) {
+	public static List<Aluno> alunos = new ArrayList<Aluno>();
+	
+	public Aluno(int rm, String nome, String curso, String periodo) {
 		super();
 		this.rm = rm;
 		this.nome = nome;
 		this.curso = curso;
+		this.periodo = periodo;
 	}
 
 	public int getRm() {
@@ -37,11 +44,20 @@ public class Aluno implements Comparable<Aluno> {
 		this.curso = curso;
 	}
 
-	@Override
-	public String toString() {
-		return "RM: " + rm + "\nNOME: " + nome + "\nCURSO: " + curso + "\n";
+	public String getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(String periodo) {
+		this.periodo = periodo;
 	}
 	
+	@Override
+	public String toString() {
+		return "Aluno [rm=" + rm + ", nome=" + nome + ", curso=" + curso + ", periodo=" + periodo + ", alunos=" + alunos
+				+ "]";
+	}
+
 	@Override
 	public int compareTo(Aluno arg0) {
 		return this.nome.compareTo(arg0.nome);
