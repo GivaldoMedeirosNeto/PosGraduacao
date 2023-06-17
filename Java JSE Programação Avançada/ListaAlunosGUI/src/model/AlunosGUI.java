@@ -2,6 +2,7 @@ package model;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -13,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+
+import dao.AlunosDAO;
 
 public class AlunosGUI extends JFrame {
 
@@ -91,20 +94,23 @@ public class AlunosGUI extends JFrame {
 		btnEnviar.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				Aluno aluno = new Aluno(
-					txtRM.getText(),
-					txtNome.getText(),
-					txtCurso.getText(),
-					(String) cmbPeriodo.getSelectedItem()
-				);
+			public void actionPerformed(ActionEvent ae) {
 				
-				Aluno.alunos.add(aluno);
-				
-				JOptionPane.showMessageDialog(null, "Aluno incluido na lista");
-				txtRM.setText("");
-				txtNome.setText("");
-				txtCurso.setText("");
+				try {
+					Aluno aluno = new Aluno(
+						txtRM.getText(),
+						txtNome.getText(),
+						txtCurso.getText(),
+						(String) cmbPeriodo.getSelectedItem()
+					);
+					
+					AlunosDAO dao = new AlunosDAO();
+					dao.incluir(aluno);
+					
+					JOptionPane.showMessageDialog(null, "Aluno incluido com sucesso.");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 				
 			}
 		});
@@ -115,13 +121,18 @@ public class AlunosGUI extends JFrame {
 		btnListar.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent ae) {
 				DefaultListModel<String> model = new DefaultListModel<String>();
-				model.addElement("RM - NOME - CURSO - PERÍODO");
-				for (Aluno aluno : Aluno.alunos) {
-					model.addElement(aluno.toString());
+				
+				try {
+					List<Aluno> alunos = new AlunosDAO().listarAlunos();
+					for (Aluno aluno : alunos) {
+						model.addElement(aluno.toString());
+					}
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
-				lstAlunos.setModel(model);
+				
 			}
 		});
 		btnListar.setBounds(130, 112, 90, 25);
