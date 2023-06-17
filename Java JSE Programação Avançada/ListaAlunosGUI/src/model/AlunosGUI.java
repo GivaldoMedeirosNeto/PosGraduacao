@@ -131,6 +131,7 @@ public class AlunosGUI extends JFrame {
 					}
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
+					e.printStackTrace();
 				}
 				
 			}
