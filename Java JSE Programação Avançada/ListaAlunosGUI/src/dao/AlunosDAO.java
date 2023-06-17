@@ -28,10 +28,12 @@ public class AlunosDAO {
 			stmt.setString(2, aluno.getNome());
 			stmt.setString(3, aluno.getCurso());
 			stmt.setString(4, aluno.getPeriodo());
-			stmt.executeUpdate();
+			stmt.execute();
+			connection.commit();
 		} catch (Exception e) {
 			throw e;
 		}
+		
 	}
 
 	public List<Aluno> listarAlunos ()throws Exception {

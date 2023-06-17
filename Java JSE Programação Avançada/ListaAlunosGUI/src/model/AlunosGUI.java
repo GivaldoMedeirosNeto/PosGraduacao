@@ -112,6 +112,10 @@ public class AlunosGUI extends JFrame {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 				
+				txtRM.setText("");
+				txtNome.setText("");
+				txtCurso.setText("");
+				
 			}
 		});
 		btnEnviar.setBounds(30, 112, 90, 25);
@@ -123,12 +127,13 @@ public class AlunosGUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
 				DefaultListModel<String> model = new DefaultListModel<String>();
-				
+				model.addElement("RM - NOME - CURSO - PERÍODO");
 				try {
 					List<Aluno> alunos = new AlunosDAO().listarAlunos();
 					for (Aluno aluno : alunos) {
 						model.addElement(aluno.toString());
 					}
+					lstAlunos.setModel(model);
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 					e.printStackTrace();
