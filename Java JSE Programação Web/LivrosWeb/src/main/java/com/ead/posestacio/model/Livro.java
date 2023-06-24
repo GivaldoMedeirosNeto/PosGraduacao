@@ -1,20 +1,18 @@
 package com.ead.posestacio.model;
 
-import java.util.Date;
-
 public class Livro {
 	
-	private String cod;
+	private int cod;
 	private String titulo;
 	private String autor;
-	private Date datapub;
+	private String datapub;
 	private double preco;
 	
-	public String getCod() {
+	public int getCod() {
 		return cod;
 	}
 	
-	public void setCod(String cod) {
+	public void setCod(int cod) {
 		this.cod = cod;
 	}
 	
@@ -34,11 +32,11 @@ public class Livro {
 		this.autor = autor;
 	}
 	
-	public Date getDatapub() {
+	public String getDatapub() {
 		return datapub;
 	}
 	
-	public void setDatapub(Date datapub) {
+	public void setDatapub(String datapub) {
 		this.datapub = datapub;
 	}
 	
